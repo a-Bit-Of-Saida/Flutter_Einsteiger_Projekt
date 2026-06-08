@@ -1,14 +1,62 @@
 # Flutter Learning Journey 🚀
 
-Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, Flutter durch praktische Projekte und Learning-by-Doing zu erlernen.
+## 📑 Inhaltsverzeichnis
+
+- [📚 Grundlagen](#-grundlagen)
+  - [Dart Basics](#dart-basics)
+  - [Flutter Grundlagen](#flutter-grundlagen)
+
+- [🎨 UI & Layouts](#-ui--layouts)
+  - [Basis-Widgets](#basis-widgets)
+  - [Layout Widgets](#layout-widgets)
+  - [Scrollbare Inhalte](#scrollbare-inhalte)
+  - [Responsive Design](#responsive-design)
+
+- [⚡ State Management](#-state-management)
+  - [Grundlagen State](#grundlagen-state)
+  - [Fortgeschritten State](#fortgeschritten-state)
+
+- [🧭 Navigation](#-navigation)
+
+- [📝 Formulare & Benutzereingaben](#-formulare--benutzereingaben)
+
+- [📦 Datenmodelle](#-datenmodelle)
+
+- [💾 Lokale Datenspeicherung](#-lokale-datenspeicherung)
+
+- [🌐 APIs & Backend](#-apis--backend)
+
+- [🏗 Architektur & Projektstruktur](#-architektur--projektstruktur)
+
+- [🧪 Testing](#-testing)
+
+- [✨ UI/UX & Design](#-uiux--design)
+
+- [📚 Flutter Packages](#-flutter-packages)
+
+- [🛠 Lernprojekte](#-lernprojekte)
+  - [Projekt 1 – Visitenkarten-App](#projekt-1--visitenkarten-app)
+  - [Projekt 2 – Wasser-Tracker](#projekt-2--wasser-tracker)
+  - [Projekt 3 – Rezept-App](#projekt-3--rezept-app)
+  - [Projekt 4 – Lernkarten-App](#projekt-4--lernkarten-app)
+  - [Projekt 5 – Bewerbungs-Tracker](#projekt-5--bewerbungs-tracker)
+  - [Projekt 6 – ToDo-App](#projekt-6--todo-app)
+  - [Projekt 7 – Pokémon/Wetter-App](#projekt-7--pokmonwetter-app)
+  - [Projekt 8 – Einkaufslisten-App](#projekt-8--einkaufslisten-app)
+  - [Abschlussprojekt – Study Planner](#abschlussprojekt--study-planner)
+
+- [📖 Wissensdatenbank](#-wissensdatenbank)
+
+- [🐞 Fehler-Lexikon](#-fehler-lexikon)
+
+- [🎯 Lernziel](#-lernziel)
 
 ---
 
-# 📚 Inhaltsverzeichnis
+# 📚 Grundlagen
 
-## 1. Grundlagen
+## Dart Basics
 
-### 1.1 Dart Basics
 - Variablen
 - Datentypen
 - Null Safety
@@ -20,7 +68,8 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 - Vererbung
 - Async & Await
 
-### 1.2 Flutter Grundlagen
+## Flutter Grundlagen
+
 - Flutter Architektur
 - Widgets
 - Material Design
@@ -30,9 +79,10 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 
 ---
 
-## 2. UI & Layouts
+# 🎨 UI & Layouts
 
-### 2.1 Basis-Widgets
+## Basis-Widgets
+
 - Text
 - Icon
 - Image
@@ -40,7 +90,8 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 - TextField
 - Card
 
-### 2.2 Layout Widgets
+## Layout Widgets
+
 - Column
 - Row
 - Container
@@ -51,34 +102,38 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 - Center
 - Stack
 
-### 2.3 Scrollbare Inhalte
+## Scrollbare Inhalte
+
 - ListView
 - GridView
 - SingleChildScrollView
 
-### 2.4 Responsive Design
+## Responsive Design
+
 - MediaQuery
 - LayoutBuilder
 - Adaptive Layouts
 
 ---
 
-## 3. State Management
+# ⚡ State Management
 
-### 3.1 Grundlagen
+## Grundlagen State
+
 - State
 - setState()
 - Widget Lifecycle
 
-### 3.2 Fortgeschritten
+## Fortgeschritten State
+
 - ValueNotifier
 - ChangeNotifier
 - Provider
-- Riverpod (optional)
+- Riverpod
 
 ---
 
-## 4. Navigation
+# 🧭 Navigation
 
 - Navigator
 - Push & Pop
@@ -89,7 +144,7 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 
 ---
 
-## 5. Formulare & Benutzereingaben
+# 📝 Formulare & Benutzereingaben
 
 - TextField
 - TextEditingController
@@ -103,7 +158,7 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 
 ---
 
-## 6. Datenmodelle
+# 📦 Datenmodelle
 
 - Klassen erstellen
 - JSON Parsing
@@ -113,82 +168,59 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 
 ---
 
-## 7. Lokale Datenspeicherung
+# 💾 Lokale Datenspeicherung
 
-### Grundlagen
 - SharedPreferences
-- Lokale Dateien
-
-### Fortgeschritten
 - Hive
 - SQLite
 
 ---
 
-## 8. APIs & Backend
+# 🌐 APIs & Backend
 
-### HTTP Requests
+- HTTP Requests
 - GET
 - POST
 - PUT
 - DELETE
-
-### JSON Verarbeitung
-- API Antworten lesen
+- JSON Parsing
+- FutureBuilder
 - Fehlerbehandlung
-- Loading States
-
-### FutureBuilder
-- Async UI
-- Ladeanzeigen
-- Fehleranzeigen
 
 ---
 
-## 9. Architektur & Projektstruktur
+# 🏗 Architektur & Projektstruktur
 
-### Ordnerstruktur
 - models/
 - screens/
 - widgets/
 - services/
 - utils/
-
-### Clean Code
+- Clean Code
 - Wiederverwendbare Widgets
-- Trennung von UI und Logik
-- Namenskonventionen
 
 ---
 
-## 10. Testing
+# 🧪 Testing
 
-### Unit Tests
-- Funktionen testen
-
-### Widget Tests
-- Widgets testen
-
-### Integration Tests
-- App-Flows testen
+- Unit Tests
+- Widget Tests
+- Integration Tests
 
 ---
 
-## 11. UI/UX & Design
+# ✨ UI/UX & Design
 
 - Themes
 - Dark Mode
-- Custom Colors
 - Typography
 - Icons
 - Animationen
-- Benutzerfreundlichkeit
 
 ---
 
-## 12. Flutter Packages
+# 📚 Flutter Packages
 
-### Häufig genutzte Packages
 - provider
 - riverpod
 - http
@@ -202,73 +234,75 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 # 🛠 Lernprojekte
 
 ## Projekt 1 – Visitenkarten-App
+
 **Lernziele**
+
 - Widgets
 - Layouts
 - Styling
 
----
-
 ## Projekt 2 – Wasser-Tracker
+
 **Lernziele**
+
 - StatefulWidget
 - setState
 - Bedingungen
 
----
-
 ## Projekt 3 – Rezept-App
+
 **Lernziele**
+
 - ListView
 - Eigene Widgets
 - Layouts
 
----
-
 ## Projekt 4 – Lernkarten-App
+
 **Lernziele**
+
 - Navigation
 - Datenmodelle
 - Mehrere Screens
 
----
-
 ## Projekt 5 – Bewerbungs-Tracker
+
 **Lernziele**
+
 - Formulare
 - CRUD
 - Navigation
 
----
-
 ## Projekt 6 – ToDo-App
-**Lernziele**
-- Daten speichern
-- JSON
-- Lokale Speicherung
 
----
+**Lernziele**
+
+- Lokale Speicherung
+- JSON
+- Datenmodelle
 
 ## Projekt 7 – Pokémon/Wetter-App
+
 **Lernziele**
+
 - APIs
 - FutureBuilder
 - HTTP Requests
 
----
-
 ## Projekt 8 – Einkaufslisten-App
+
 **Lernziele**
+
 - Provider
 - State Management
 - Datenmodelle
 
----
-
 ## Abschlussprojekt – Study Planner
+
 **Funktionen**
+
 - Module verwalten
-- Aufgaben verwalten
+- Lernaufgaben verwalten
 - Prüfungen verwalten
 - Fortschritt verfolgen
 - Daten speichern
@@ -278,7 +312,6 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 
 # 📖 Wissensdatenbank
 
-## Flutter Cheatsheets
 - Widget Cheatsheet
 - Layout Cheatsheet
 - State Management Cheatsheet
@@ -287,9 +320,7 @@ Dieses Repository dokumentiert meinen Lernweg in Flutter und Dart. Ziel ist es, 
 
 ---
 
-## Fehler-Lexikon
-
-Dokumentation häufiger Fehler:
+# 🐞 Fehler-Lexikon
 
 - RenderFlex Overflow
 - Null Check Operator Error
@@ -302,12 +333,12 @@ Dokumentation häufiger Fehler:
 
 # 🎯 Lernziel
 
-Nach Abschluss dieses Lernpfads soll ich in der Lage sein:
+Nach Abschluss dieses Lernpfads kann ich:
 
-- Flutter Apps eigenständig zu entwickeln
-- APIs anzubinden
-- Daten lokal zu speichern
-- State Management einzusetzen
-- Apps sauber zu strukturieren
-- Eigene Projekte umzusetzen
-- Apps für Android und iOS bereitzustellen
+- Flutter Apps eigenständig entwickeln
+- APIs anbinden
+- Daten lokal speichern
+- State Management einsetzen
+- Apps sauber strukturieren
+- Eigene Projekte umsetzen
+- Android- und iOS-Apps veröffentlichen
