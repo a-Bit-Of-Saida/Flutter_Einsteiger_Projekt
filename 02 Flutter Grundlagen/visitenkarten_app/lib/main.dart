@@ -62,14 +62,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,16 +74,57 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Card(
+              elevation: 5,
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.person, size: 60),
+                    Text(
+                      'Saida Covrk',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    ListTile(
+                      leading: Icon(Icons.email),
+                      title: Text('E-Mail'),
+                      subtitle: Text('saida@covrk.de'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.code),
+                      title: Text('Beruf'),
+                      subtitle: Text('Flutter App Developer'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.school),
+                      title: Text('Studiengang'),
+                      subtitle: Text('Wirtschaftsinformatik'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.phone),
+                      title: Text('Telefonnummer'),
+                      subtitle: Text('+49 012 3456789'),
+                    ),
+                  ],
+                ),
+              ),
             ),
             const Row(
               children: [
                 Icon(Icons.person),
                 SizedBox(width: 10),
-                Text('Name'),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Name',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
                 SizedBox(width: 10),
                 Text('Saida Covrk'),
               ],
@@ -100,7 +133,13 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Icon(Icons.school),
                 SizedBox(width: 10),
-                Text('Studiengang'),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Studiengang',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
                 SizedBox(width: 10),
                 Text('Wirtschaftsinformatik'),
               ],
@@ -109,7 +148,13 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Icon(Icons.work),
                 SizedBox(width: 10),
-                Text('Beruf'),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Beruf',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
                 SizedBox(width: 10),
                 Text('App Developer'),
               ],
@@ -118,16 +163,37 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Icon(Icons.phone),
                 SizedBox(width: 10),
-                Text('Telefonnummer'),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Telefonnummer',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
                 SizedBox(width: 10),
                 Text('0176 123456'),
+              ],
+            ),
+            const Row(
+              children: [
+                Icon(Icons.email),
+                SizedBox(width: 10),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'E-Mail',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(width: 10),
+                Text('saida@covrk.de'),
               ],
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: null,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
