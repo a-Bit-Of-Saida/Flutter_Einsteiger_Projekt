@@ -30,6 +30,7 @@ Card
  */
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       title: 'Visitenkarten App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 60, 167, 197),
+          seedColor: Color.fromARGB(255, 60, 167, 197),
         ),
       ),
       home: const MyHomePage(title: 'Visitenkarten App'),
@@ -52,150 +53,78 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
 
   final String title;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+  Future<void> openLinkedIn() async {
+    final Uri linkedin = Uri.parse('https://www.linkedin.com/in/saida-covrk/');
 
-class _MyHomePageState extends State<MyHomePage> {
+    await launchUrl(linkedin, mode: LaunchMode.externalApplication);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Card(
               elevation: 5,
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.person, size: 60),
-                    Text(
+                    const Icon(Icons.person, size: 60),
+                    const Text(
                       'Saida Covrk',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    ListTile(
+                    const SizedBox(height: 20),
+
+                    const ListTile(
                       leading: Icon(Icons.email),
                       title: Text('E-Mail'),
                       subtitle: Text('saida@covrk.de'),
                     ),
-                    ListTile(
+                    const ListTile(
                       leading: Icon(Icons.code),
                       title: Text('Beruf'),
                       subtitle: Text('Flutter App Developer'),
                     ),
-                    ListTile(
+                    const ListTile(
                       leading: Icon(Icons.school),
                       title: Text('Studiengang'),
                       subtitle: Text('Wirtschaftsinformatik'),
                     ),
-                    ListTile(
+                    const ListTile(
                       leading: Icon(Icons.phone),
                       title: Text('Telefonnummer'),
-                      subtitle: Text('+49 012 3456789'),
+                      subtitle: Text('+49 176 123456'),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    ElevatedButton(
+                      onPressed: openLinkedIn,
+                      child: const Text('LinkedIn'),
                     ),
                   ],
                 ),
               ),
             ),
-            const Row(
-              children: [
-                Icon(Icons.person),
-                SizedBox(width: 10),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'Name',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Text('Saida Covrk'),
-              ],
-            ),
-            const Row(
-              children: [
-                Icon(Icons.school),
-                SizedBox(width: 10),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'Studiengang',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Text('Wirtschaftsinformatik'),
-              ],
-            ),
-            const Row(
-              children: [
-                Icon(Icons.work),
-                SizedBox(width: 10),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'Beruf',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Text('App Developer'),
-              ],
-            ),
-            const Row(
-              children: [
-                Icon(Icons.phone),
-                SizedBox(width: 10),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'Telefonnummer',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Text('0176 123456'),
-              ],
-            ),
-            const Row(
-              children: [
-                Icon(Icons.email),
-                SizedBox(width: 10),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'E-Mail',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Text('saida@covrk.de'),
-              ],
-            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
