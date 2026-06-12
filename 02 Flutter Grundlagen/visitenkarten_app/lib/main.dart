@@ -28,7 +28,6 @@ Padding
 Card
 
  */
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -45,7 +44,7 @@ class MyApp extends StatelessWidget {
       title: 'Visitenkarten App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 60, 167, 197),
+          seedColor: Color.fromARGB(255, 60, 167, 197),
         ),
       ),
       home: const MyHomePage(title: 'Visitenkarten App'),
@@ -87,6 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Saida Covrk',
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
+                  const Text('Wirtschaftsinformatik Studentin'),
+                  const Text('@ University of Applied Sciences'),
                   const SizedBox(height: 20),
                   const ListTile(
                     leading: Icon(Icons.email),
@@ -123,30 +124,117 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget buildSkillsPage() {
-    return const Padding(
-      padding: EdgeInsets.all(24),
+    return Padding(
+      padding: const EdgeInsets.all(24),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Programmiersprachen'),
           Card(
-            child: ListTile(leading: Icon(Icons.code), title: Text('Flutter')),
-          ),
-          Card(
-            child: ListTile(leading: Icon(Icons.storage), title: Text('Dart')),
-          ),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.design_services),
-              title: Text('UI Design'),
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Row(
+                    children: [
+                      Icon(Icons.code, size: 40),
+                      SizedBox(width: 10),
+                      Text(
+                        'Programmiersprachen',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16),
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: [
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('Dart'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('Java'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('SQL'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-          Text('Tools & Frameworks'),
+
+          const SizedBox(height: 16),
+
           Card(
-            child: ListTile(leading: Icon(Icons.code), title: Text('Flutter')),
-          ),
-          Text('Microsoft Software'),
-          Card(
-            child: ListTile(leading: Icon(Icons.code), title: Text('Flutter')),
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Row(
+                    children: [
+                      Icon(Icons.build, size: 40),
+                      SizedBox(width: 10),
+                      Text(
+                        'Backend & Infrastruktur',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16),
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: [
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('Spring Boot'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('RabbitMQ'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('Tableau / Power BI'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('ArchiMate'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -154,24 +242,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget buildProjectPage() {
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.all(24),
       child: Column(
         children: [
           Card(
             child: Column(
               children: [
-                ListTile(leading: Icon(Icons.code), title: Text('BSRN')),
-                TextButton(onPressed: () {}, child: Text('GitHub Repo')),
-              ],
-            ),
-          ),
-
-          Card(
-            child: Column(
-              children: [
-                ListTile(leading: Icon(Icons.storage), title: Text('Web')),
-                TextButton(onPressed: () {}, child: Text('GitHub Repo')),
+                ListTile(
+                  leading: Icon(Icons.code),
+                  title: Text('BSRN'),
+                  subtitle: Text('UDP Peer-to-Peer Chat'),
+                ),
+                TextButton(onPressed: null, child: Text('GitHub Repo')),
               ],
             ),
           ),
@@ -179,10 +262,23 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 ListTile(
-                  leading: Icon(Icons.design_services),
-                  title: Text('AI'),
+                  leading: Icon(Icons.web),
+                  title: Text('Web Projekt'),
+                  subtitle: Text('React / Spring Boot Projekt'),
                 ),
-                TextButton(onPressed: () {}, child: Text('GitHub Repo')),
+                TextButton(onPressed: null, child: Text('GitHub Repo')),
+              ],
+            ),
+          ),
+          Card(
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.smart_toy),
+                  title: Text('AI Projekt'),
+                  subtitle: Text('Kleines KI-Projekt'),
+                ),
+                TextButton(onPressed: null, child: Text('GitHub Repo')),
               ],
             ),
           ),
