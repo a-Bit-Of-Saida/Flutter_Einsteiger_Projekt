@@ -236,6 +236,73 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Row(
+                    children: [
+                      Icon(Icons.computer, size: 40),
+                      SizedBox(width: 10),
+                      Text(
+                        'Mircosoft Software',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 10),
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: [
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('Word'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('PowerPoint'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('Excel'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('Outlook'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('Teams'),
+                        ),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Text('OneNote'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
