@@ -835,7 +835,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget buildProjectPage() {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.all(24),
       child: Column(
         children: [
@@ -847,7 +847,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   title: Text('BSRN'),
                   subtitle: Text('UDP Peer-to-Peer Chat'),
                 ),
-                TextButton(onPressed: null, child: Text('GitHub Repo')),
+                TextButton(
+                  onPressed: () async {
+                    final Uri url = Uri.parse(
+                      'https://github.com/a-Bit-Of-Saida/BSRN-Gruppenaufgabe',
+                    );
+                    await launchUrl(url, mode: LaunchMode.externalApplication);
+                  },
+                  child: Text('GitHub Repo'),
+                ),
               ],
             ),
           ),
