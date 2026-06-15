@@ -847,6 +847,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   title: Text('BSRN'),
                   subtitle: Text('UDP Peer-to-Peer Chat'),
                 ),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    Chip(label: Text('Python')),
+                    Chip(label: Text("Tkinter")),
+                  ],
+                ),
                 TextButton(
                   onPressed: () async {
                     final Uri url = Uri.parse(
