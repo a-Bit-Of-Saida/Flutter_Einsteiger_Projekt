@@ -264,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Icon(Icons.computer, size: 40),
                       SizedBox(width: 10),
                       Text(
-                        'Microsoft Software',
+                        'Microsoft-Software',
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
