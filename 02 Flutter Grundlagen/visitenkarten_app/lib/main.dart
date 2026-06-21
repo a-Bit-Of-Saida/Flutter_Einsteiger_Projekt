@@ -31,6 +31,8 @@ Card
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -64,10 +66,31 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
+  String setup = '';
+  String punchline = '';
+  bool isLoading = false;
 
   Future<void> openLinkedIn() async {
     final Uri linkedin = Uri.parse('https://www.linkedin.com/in/saida-covrk/');
     await launchUrl(linkedin, mode: LaunchMode.externalApplication);
+  }
+
+  Future<void> ladeWitz() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    final url = Uri.parse('https://official-joke-api.appspot.com/random_joke');
+
+    final response = await http.get(url);
+
+    final data = jsonDecode(response.body);
+
+    setState(() {
+      setup = data['setup'];
+      punchline = data['punchline'];
+      isLoading = false;
+    });
   }
 
   Widget buildHomePage() {
@@ -896,12 +919,56 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget buildJokePage() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'Witz des Tages',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+
+            const SizedBox(height: 16),
+
+            ElevatedButton(
+              onPressed: ladeWitz,
+              child: const Text('Witz laden'),
+            ),
+
+            const SizedBox(height: 16),
+
+            if (isLoading)
+              const CircularProgressIndicator()
+            else if (setup.isNotEmpty)
+              Column(
+                children: [
+                  Text(setup, textAlign: TextAlign.center),
+
+                  const SizedBox(height: 8),
+
+                  Text(
+                    punchline,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
       buildHomePage(),
       buildSkillsPage(),
       buildProjectPage(),
+      buildJokePage(),
     ];
 
     return Scaffold(
@@ -911,6 +978,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: selectedIndex,
         onTap: (index) {
           setState(() {
@@ -921,6 +989,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.work), label: 'Skills'),
           BottomNavigationBarItem(icon: Icon(Icons.code), label: 'Projekte'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.emoji_emotions),
+            label: 'Witz',
+          ),
         ],
       ),
     );
