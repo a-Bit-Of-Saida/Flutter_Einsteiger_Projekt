@@ -69,6 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String setup = '';
   String punchline = '';
   bool isLoading = false;
+  String quote = '';
+  String author = '';
 
   Future<void> openLinkedIn() async {
     final Uri linkedin = Uri.parse('https://www.linkedin.com/in/saida-covrk/');
@@ -89,6 +91,24 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       setup = data['setup'];
       punchline = data['punchline'];
+      isLoading = false;
+    });
+  }
+
+  Future<void> ladeZitat() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    final url2 = Uri.parse('https://dummyjson.com/quotes/random');
+
+    final response2 = await http.get(url2);
+
+    final data2 = jsonDecode(response2.body);
+
+    setState(() {
+      quote = data2['quote'];
+      author = data2['author'];
       isLoading = false;
     });
   }
@@ -946,9 +966,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Column(
                 children: [
                   Text(setup, textAlign: TextAlign.center),
-
                   const SizedBox(height: 8),
-
                   Text(
                     punchline,
                     textAlign: TextAlign.center,
@@ -956,6 +974,51 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+
+            const SizedBox(height: 32),
+
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    const Text(
+                      'Zitat des Tages',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    ElevatedButton(
+                      onPressed: ladeZitat,
+                      child: const Text('Zitat laden'),
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    if (isLoading)
+                      const CircularProgressIndicator()
+                    else if (quote.isNotEmpty)
+                      Column(
+                        children: [
+                          Text(author, textAlign: TextAlign.center),
+
+                          const SizedBox(height: 8),
+
+                          Text(
+                            quote,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
